@@ -43,6 +43,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -400,7 +401,7 @@ public class FileUtils{
 	}
 	
 	public static File createTempFile() throws IOException{
-		File tempFile = File.createTempFile("cstudio", ".tmp");
+		File tempFile = Files.createTempFile("cstudio", ".tmp").toFile();
 		addFileToTempTags(tempFile);
 		return tempFile;
 	}

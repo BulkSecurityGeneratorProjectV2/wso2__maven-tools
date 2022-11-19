@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -374,7 +375,7 @@ public class RepositoryGenMojo extends AbstractMojo {
 		}
         REPO_GEN_LOCATION=new File(metadataRepository.getFile().replace("/",File.separator));
         ARCHIVE_FILE=new File(targetDir,getProject().getArtifactId()+"_"+getProject().getVersion()+".zip");
-        categoryDeinitionFile=File.createTempFile("equinox-p2", "category");
+        categoryDeinitionFile=Files.createTempFile("equinox-p2", "category").toFile();
     }
 
 	private void updateRepositoryWithCategories() throws Exception {
